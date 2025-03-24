@@ -3,12 +3,16 @@ import { formatDate } from "@/lib/format";
 import LikeButton from "./like-icon";
 import { togglePostLikeStatus } from "@/actions/posts";
 import { useOptimistic } from "react";
+import Image from "next/image";
 
 function Post({ post, action }) {
   return (
     <article className="post">
       <div className="post-image">
-        <img src={post.image} alt={post.title} />
+        {/* <img src={post.image} alt={post.title} /> */}
+
+        {/* set image size to the container since fill props makes it relative to its parent's sizing */}
+        <Image src={post.image} fill alt={post.title} />
       </div>
       <div className="post-content">
         <header>
